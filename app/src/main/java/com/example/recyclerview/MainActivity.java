@@ -1,12 +1,15 @@
 package com.example.recyclerview;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mesItems.add(new Items(R.drawable.logo9,"Doom","Incarnez Doom et plongez dans l'enfer pour combattre le mal"));
         mesItems.add(new Items(R.drawable.logo10,"Raft","Vous etes seul dans l'ocean avec votre bateau... Survivez l'aventure marine... les dangers des fond marin vous attendent!"));
 
-        monAdapter = new MonAdapter(mesItems); //j'instancie mon Adapter en lui donnant ma liste
+        monAdapter = new MonAdapter(mesItems, this); //j'instancie mon Adapter en lui donnant ma liste
 
        // LinearLayoutManager layoutManager =  new LinearLayoutManager(this);
        // recyclerView.setLayoutManager(layoutManager);
@@ -49,5 +52,9 @@ public class MainActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         recyclerView.setAdapter(monAdapter); //j'affiche mon Adapter dans mon recycleView
+
+        EffetSwipe effetSwipe = new EffetSwipe(0,ItemTouchHelper.LEFT,MainActivity.this,mesItems,monAdapter);
+
+        new ItemTouchHelper(effetSwipe).attachToRecyclerView(recyclerView);
     }
 }
