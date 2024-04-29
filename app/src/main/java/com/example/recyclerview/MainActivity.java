@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(monAdapter); //j'affiche mon Adapter dans mon recycleView
 
-        EffetSwipe effetSwipe = new EffetSwipe(0,ItemTouchHelper.LEFT,MainActivity.this,mesItems,monAdapter);
+        EffetSwipe effetSwipe = new EffetSwipe(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT,MainActivity.this,mesItems,monAdapter);
 
         new ItemTouchHelper(effetSwipe).attachToRecyclerView(recyclerView);
     }

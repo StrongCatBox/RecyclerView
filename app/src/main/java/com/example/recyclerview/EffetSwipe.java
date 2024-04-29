@@ -49,8 +49,11 @@ public class EffetSwipe extends ItemTouchHelper.SimpleCallback {
     {
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
         new RecyclerViewSwipeDecorator.Builder(c,recyclerView,viewHolder, dX, dY,actionState,isCurrentlyActive)
-        .addBackgroundColor(ContextCompat.getColor(viewHolder.itemView.getContext(),R.color.red))
-                .addActionIcon(R.drawable.poubelle)
+        .addSwipeLeftBackgroundColor(ContextCompat.getColor(viewHolder.itemView.getContext(),R.color.red))
+
+                .addSwipeLeftActionIcon(R.drawable.poubelle)
+                .addSwipeRightBackgroundColor(ContextCompat.getColor(viewHolder.itemView.getContext(),R.color.vert))
+                .addSwipeRightActionIcon(R.drawable.archivage)
                 .create()
                 .decorate();
     }
