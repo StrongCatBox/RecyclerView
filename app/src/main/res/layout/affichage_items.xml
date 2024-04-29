@@ -15,7 +15,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="10dp"
-            android:src="@tools:sample/avatars"
             app:srcCompat="@drawable/logo1" />
 
         <LinearLayout
